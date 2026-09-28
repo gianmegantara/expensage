@@ -13,9 +13,9 @@ jobs:
   build-release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v6
         with:
           distribution: temurin
           java-version: "17"
@@ -59,7 +59,8 @@ jobs:
           ./gradlew :app:assembleRelease --no-daemon --stacktrace
 
       - name: Publish GitHub Release
-        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v3
         with:
           files: app/build/outputs/apk/release/app-release.apk
           generate_release_notes: true
