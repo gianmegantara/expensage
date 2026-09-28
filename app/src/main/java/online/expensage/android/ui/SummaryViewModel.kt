@@ -69,6 +69,26 @@ class SummaryViewModel(application: Application) : AndroidViewModel(application)
 
     fun retry() = load(_period.value)
 
+    /**
+     * Re-reads the saved setup and loads data if we don't have any yet. Called
+     * when the screen resumes so that importing a setup link on another screen
+     * refreshes the summary (with the loading indicator) instead of staying blank.
+     */
+    fun refreshIfNeeded() {
+        if (config != null && _uiState.value.summary != null) return
+        viewModelScope.launch {
+            val loaded = configStore.load()
+            config = loaded
+            when {
+                loaded == null -> _uiState.update { it.copy(hasConfig = false, isLoading = false) }
+                _uiState.value.summary == null -> {
+                    _uiState.update { it.copy(hasConfig = true) }
+                    load(_period.value)
+                }
+            }
+        }
+    }
+
     private fun load(period: SummaryPeriod) {
         val current = config ?: return
         viewModelScope.launch {

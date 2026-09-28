@@ -25,6 +25,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -76,6 +77,11 @@ class SummaryActivity : ComponentActivity() {
             }
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.refreshIfNeeded()
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -126,6 +132,13 @@ private fun SummaryScreen(viewModel: SummaryViewModel) {
         ) {
             if (state.hasConfig) {
                 SummaryPeriodSelector(selected = period, onSelect = viewModel::selectPeriod)
+                if (state.isLoading && state.summary != null) {
+                    LinearProgressIndicator(
+                        modifier = Modifier.fillMaxWidth(),
+                        color = MaterialTheme.colorScheme.primary,
+                        trackColor = MaterialTheme.colorScheme.surfaceVariant,
+                    )
+                }
             }
 
             when {
