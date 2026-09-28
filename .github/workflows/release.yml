@@ -21,10 +21,14 @@ jobs:
           java-version: "17"
           cache: gradle
 
-      - uses: android-actions/setup-android@v3
-
-      - name: Install Android SDK packages
-        run: sdkmanager --install "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+      - name: Ensure Android SDK packages
+        run: |
+          if command -v sdkmanager >/dev/null 2>&1; then
+            yes | sdkmanager --licenses >/dev/null 2>&1 || true
+            sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0" || true
+          else
+            echo "sdkmanager not on PATH; relying on the preinstalled SDK and Gradle auto-download"
+          fi
 
       - name: Decode signing keystore
         env:
