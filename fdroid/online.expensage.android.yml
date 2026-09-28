@@ -1,13 +1,15 @@
 # Draft F-Droid build recipe.
-# This file lives in the fdroiddata repo as: metadata/online.expensage.android.yml
-# It is kept here for reference only.
+# Submit this as: metadata/online.expensage.android.yml in the fdroiddata repo
+# (https://gitlab.com/fdroid/fdroiddata). Kept here for reference only.
 
 Categories:
   - Money
 License: GPL-3.0-only
 AuthorName: Gian Megantara
+WebSite: https://expensage.online
 SourceCode: https://github.com/gianmegantara/expensage
 IssueTracker: https://github.com/gianmegantara/expensage/issues
+Changelog: https://github.com/gianmegantara/expensage/releases
 
 AutoName: ExpenSage
 
