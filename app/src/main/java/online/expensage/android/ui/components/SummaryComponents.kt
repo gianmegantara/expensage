@@ -467,9 +467,9 @@ fun EditExpenseDialog(
                 Box {
                     OutlinedTextField(
                         value = category,
-                        onValueChange = {},
-                        readOnly = true,
+                        onValueChange = { input -> if (input.length <= 40) category = input },
                         label = { Text(stringResource(R.string.field_category)) },
+                        singleLine = true,
                         trailingIcon = {
                             IconButton(onClick = { categoryOpen = true }) {
                                 Icon(Icons.Default.ArrowDropDown, contentDescription = null)
