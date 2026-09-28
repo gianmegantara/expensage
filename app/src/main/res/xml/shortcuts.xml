@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_add"
+        android:shortcutId="quick_add"
+        android:shortcutLongLabel="@string/shortcut_quick_add_long"
+        android:shortcutShortLabel="@string/shortcut_quick_add_short">
+        <intent
+            android:action="online.expensage.android.action.QUICK_ADD"
+            android:targetClass="online.expensage.android.MainActivity"
+            android:targetPackage="online.expensage.android" />
+    </shortcut>
+</shortcuts>

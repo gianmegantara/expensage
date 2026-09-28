@@ -1,0 +1,10 @@
+ExpenSage is a frictionless expense tracker companion. Log what you spent in a couple of taps, and see where your money goes.
+
+Features:
+* Quick add from the home-screen widget, quick settings tile, or a pinned shortcut
+* Works offline: expenses are queued on the device and synced automatically
+* Double-submit protection with idempotency keys
+* Today and month summaries, category breakdown, spending trend, and insights
+* Daily reminder so you never forget to log
+
+ExpenSage works with your own ExpenSage server. Import your setup link to connect. The app contains no ads, no trackers, and no Google services.

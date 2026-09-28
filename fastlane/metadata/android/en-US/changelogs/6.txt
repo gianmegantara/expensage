@@ -1,0 +1,5 @@
+* Full-screen Summary with Today/Week/Month/Year, budget, categories, trend and insights
+* Edit and delete expenses from the recent list
+* Settings: appearance (light/dark/system), daily reminder, account, offline queue
+* Widget opens the quick-add popup; app icon opens the full app
+* Hardened release: no unused permissions, no cleartext traffic, backups disabled
