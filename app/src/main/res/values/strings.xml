@@ -65,6 +65,7 @@
     <!-- Summary -->
     <string name="summary_title">Summary</string>
     <string name="summary_full_report">Full report</string>
+    <string name="summary_refresh">Refresh</string>
     <string name="summary_no_setup">Import your setup link to see your summary.</string>
     <string name="summary_error">Could not load your summary.</string>
     <string name="summary_retry">Retry</string>

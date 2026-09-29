@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
@@ -112,6 +113,15 @@ private fun SummaryScreen(viewModel: SummaryViewModel) {
                     }
                 },
                 actions = {
+                    IconButton(
+                        onClick = { viewModel.retry() },
+                        enabled = state.hasConfig && !state.isLoading,
+                    ) {
+                        Icon(
+                            Icons.Default.Refresh,
+                            contentDescription = stringResource(R.string.summary_refresh),
+                        )
+                    }
                     TextButton(
                         onClick = { viewModel.openFullReport(openWebReport) },
                         enabled = !state.isFetchingReport && state.hasConfig,
