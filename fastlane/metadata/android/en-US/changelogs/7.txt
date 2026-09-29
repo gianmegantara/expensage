@@ -1,0 +1,4 @@
+* Loading indicator when switching periods and after setup import
+* Refresh action in the Summary toolbar
+* Custom (free-text) categories when editing an expense
+* F-Droid build fixes (removed toolchain resolver plugin)
